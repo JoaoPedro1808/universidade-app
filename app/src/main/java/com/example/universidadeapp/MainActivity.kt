@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btListarAlunos.setOnClickListener {
-            Toast.makeText(this, "Conectado com a API (Listar alunos)", Toast.LENGTH_SHORT).show()
-            testeListarAlunos()
+            val intent = Intent(this, ListarAlunos::class.java)
+            startActivity(intent)
         }
 
         btBuscarAluno.setOnClickListener {
@@ -42,32 +42,6 @@ class MainActivity : AppCompatActivity() {
 
         btAtualizarAluno.setOnClickListener {
             Toast.makeText(this, "Conectado com a API (Atualizar dados do aluno)", Toast.LENGTH_SHORT).show()
-        }
-
-    }
-
-    private fun testeListarAlunos() {
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val listaAlunos = RetrofitClient.api.listarAlunos()
-
-                withContext(Dispatchers.Main) {
-                    if (listaAlunos.isEmpty()) {
-                        Toast.makeText(this@MainActivity, "Nenhum cadastro", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this@MainActivity, "${listaAlunos.size} alunos encontrados!", Toast.LENGTH_SHORT).show()
-
-                        for (aluno in listaAlunos) {
-                            Log.d("API_TESTE", "Aluno: ${aluno.nome} | Matricula: ${aluno.matricula}")
-                        }
-                    }
-                }
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(this@MainActivity, "Erro na api: ${e.message}", Toast.LENGTH_SHORT).show()
-                    Log.e("API_ERRO", "Erro detalhado", e)
-                }
-            }
         }
     }
 }

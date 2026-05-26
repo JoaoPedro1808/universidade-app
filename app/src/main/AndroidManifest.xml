@@ -15,6 +15,9 @@
         android:theme="@style/Theme.UniversidadeApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ListarAlunos"
+            android:exported="false" />
+        <activity
             android:name=".InserirNovoAluno"
             android:exported="false" />
         <activity
