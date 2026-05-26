@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         val btAtualizarAluno = findViewById<Button>(R.id.btAtualizarAluno)
 
         btNovoAluno.setOnClickListener {
-            Toast.makeText(this, "Conectado com a API (Inserir novo aluno)", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, InserirNovoAluno::class.java)
+            startActivity(intent)
         }
 
         btListarAlunos.setOnClickListener {

@@ -18,9 +18,9 @@ interface UniversitarioAPI {
     @POST("/api/universitarios/novo-aluno")
     suspend fun inserirNovoAluno(
         @Query("nome") nome: String,
-        @Query("matricula") matricula: String,
+        @Query("matricula") matricula: Int,
         @Query("sexo") sexo: String,
-        @Query("idade") idade: String
+        @Query("idade") idade: Int
     ) : Universitario
 
     @DELETE("/api/universitarios/remover-aluno")
