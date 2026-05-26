@@ -7,15 +7,15 @@ import retrofit2.http.PUT
 import retrofit2.http.Query
 
 interface UniversitarioAPI {
-    @GET("api/universitarios/lista-aluno")
+    @GET("/api/universitarios/lista-alunos")
     suspend fun listarAlunos() : List<Universitario>
 
-    @GET("api/universitario/buscar-aluno")
+    @GET("/api/universitarios/buscar-aluno")
     suspend fun buscarAluno(
         @Query("matricula") matricula: Int
     ) : Universitario
 
-    @POST("api/universitario/novo-aluno")
+    @POST("/api/universitarios/novo-aluno")
     suspend fun inserirNovoAluno(
         @Query("nome") nome: String,
         @Query("matricula") matricula: String,
@@ -23,12 +23,12 @@ interface UniversitarioAPI {
         @Query("idade") idade: String
     ) : Universitario
 
-    @DELETE("api/universitario/remover-aluno")
+    @DELETE("/api/universitarios/remover-aluno")
     suspend fun deletarAluno(
         @Query("matricula") matricula: Int
     ) : Universitario
 
-    @PUT("api/universitario/atualizar-aluno")
+    @PUT("/api/universitarios/atualizar-aluno")
     suspend fun atualizarAluno(
         @Query("nome") nome: String,
         @Query("matricula") matricula: Int,
