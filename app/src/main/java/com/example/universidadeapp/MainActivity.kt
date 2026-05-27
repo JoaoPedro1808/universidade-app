@@ -33,7 +33,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btBuscarAluno.setOnClickListener {
-            Toast.makeText(this, "Conectado com a API (Buscar aluno por matricula)", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, BuscarAluno::class.java)
+            startActivity(intent)
         }
 
         btRemoverAluno.setOnClickListener {
