@@ -1,6 +1,8 @@
 package com.example.universidadeapp
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +22,12 @@ class ListarAlunos : AppCompatActivity() {
         setContentView(R.layout.activity_listar_alunos)
 
         buscarEExibirAluno()
+
+        val btVoltar = findViewById<Button>(R.id.btVoltar)
+        btVoltar.setOnClickListener {
+            val voltar = Intent(this, MainActivity::class.java)
+            startActivity(voltar)
+        }
     }
 
     private fun buscarEExibirAluno() {

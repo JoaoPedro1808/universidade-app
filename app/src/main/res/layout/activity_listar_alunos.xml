@@ -19,6 +19,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAlunos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="519dp" />
+
+    <Button
+        android:id="@+id/btVoltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
 </LinearLayout>
