@@ -58,7 +58,6 @@ class InserirNovoAluno : AppCompatActivity() {
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@InserirNovoAluno, "Erro ao salvar aluno: ${e.message}", Toast.LENGTH_LONG).show()
-                    Log.e("API_CADASTRO_ERRO", "Erro na rota novo-aluno", e)
                 }
             }
         }

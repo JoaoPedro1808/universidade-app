@@ -38,7 +38,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btRemoverAluno.setOnClickListener {
-            Toast.makeText(this, "Conectado com a API (Remover alunos especifico)", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, RemoverAluno::class.java)
+            startActivity(intent)
         }
 
         btAtualizarAluno.setOnClickListener {
