@@ -15,6 +15,9 @@
         android:theme="@style/Theme.UniversidadeApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AtualizarAluno"
+            android:exported="false" />
+        <activity
             android:name=".RemoverAluno"
             android:exported="false" />
         <activity

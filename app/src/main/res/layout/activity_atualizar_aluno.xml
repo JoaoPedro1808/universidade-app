@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".InserirNovoAluno">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Atualizar os dados de um aluno"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etMatriculaAtualizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número da Matrícula"
+        android:inputType="number"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etNomeAtualizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome Completo (Opcional)"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etIdadeAtualizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Idade (Opcional)"
+        android:inputType="number"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etSexoAtualizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sexo (Ex: M, F, Outro) (Opcional)"
+        android:inputType="text"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btAtualizarAluno"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Atualizar as informações do aluno"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:text="Informe a matricula do aluno e depois digite nos textos o que deseja mudar dos dadso do aluno" />
+
+</LinearLayout>

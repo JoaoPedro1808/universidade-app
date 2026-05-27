@@ -33,6 +33,6 @@ interface UniversitarioAPI {
         @Query("nome") nome: String,
         @Query("matricula") matricula: Int,
         @Query("sexo") sexo: String,
-        @Query("idade") idade: String
+        @Query("idade") idade: Int
     ) : Universitario
 }
