@@ -49,10 +49,8 @@ class InserirNovoAluno : AppCompatActivity() {
             try {
                 val alunoCriado = RetrofitClient.api.inserirNovoAluno(nome, matricula, sexo, idade)
 
-                // Volta para a Thread principal para exibir o resultado visual
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@InserirNovoAluno, "Aluno ${alunoCriado.nome} inserido com sucesso!", Toast.LENGTH_LONG).show()
-
                     finish()
                 }
             } catch (e: Exception) {

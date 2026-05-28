@@ -43,7 +43,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btAtualizarAluno.setOnClickListener {
-            Toast.makeText(this, "Conectado com a API (Atualizar dados do aluno)", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, AtualizarAluno::class.java)
+            startActivity(intent)
         }
     }
 }
