@@ -35,7 +35,7 @@ class BuscarAluno : AppCompatActivity() {
 
                     withContext(Dispatchers.Main) {
                         tvResultadoNome.text = "Nome: ${aluno.nome}"
-                        tvResultadoDetalhe.text = "Idade: ${aluno.idade} | Sexo: ${aluno.sexo}"
+                        tvResultadoDetalhe.text = "Idade: ${aluno.idade} | Sexo: ${aluno.sexo} | Idade: ${aluno.idade} | Nota: ${aluno.nota}"
 
                         layoutResultado.visibility = View.VISIBLE
                     }

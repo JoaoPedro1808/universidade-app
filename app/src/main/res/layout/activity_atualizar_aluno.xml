@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="Atualizar os dados de um aluno"
+        android:text="Atualizar a nota de um aluno"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -25,28 +25,12 @@
         android:layout_marginBottom="16dp"/>
 
     <EditText
-        android:id="@+id/etNomeAtualizar"
+        android:id="@+id/etNota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome Completo (Opcional)"
         android:inputType="textPersonName"
         android:layout_marginBottom="16dp"/>
-
-    <EditText
-        android:id="@+id/etIdadeAtualizar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Idade (Opcional)"
-        android:inputType="number"
-        android:layout_marginBottom="16dp"/>
-
-    <EditText
-        android:id="@+id/etSexoAtualizar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Sexo (Ex: M, F, Outro) (Opcional)"
-        android:inputType="text"
-        android:layout_marginBottom="32dp"/>
 
     <Button
         android:id="@+id/btAtualizarAluno"
@@ -54,11 +38,5 @@
         android:layout_height="60dp"
         android:text="Atualizar as informações do aluno"
         android:textSize="18sp"/>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="71dp"
-        android:text="Informe a matricula do aluno e depois digite nos textos o que deseja mudar dos dadso do aluno" />
 
 </LinearLayout>

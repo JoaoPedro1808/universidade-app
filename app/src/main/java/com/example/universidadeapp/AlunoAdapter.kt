@@ -17,7 +17,7 @@ class AlunoAdapter(private val listaAlunos: List<Universitario>) : RecyclerView.
     override fun onBindViewHolder(holder: AlunoViewHolder, position: Int) {
         val aluno = listaAlunos[position]
         holder.tvNome.text = aluno.nome
-        holder.tvMatricula.text = "Matrícula: ${aluno.matricula} | Sexo: ${aluno.sexo} | Idade: ${aluno.idade}"
+        holder.tvMatricula.text = "Matrícula: ${aluno.matricula} | Sexo: ${aluno.sexo} | Idade: ${aluno.idade} | Nota: ${aluno.nota}"
     }
 
     override fun getItemCount(): Int = listaAlunos.size

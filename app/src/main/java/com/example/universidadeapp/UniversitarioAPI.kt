@@ -1,5 +1,6 @@
 package com.example.universidadeapp
 
+import retrofit2.Response
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -20,7 +21,8 @@ interface UniversitarioAPI {
         @Query("nome") nome: String,
         @Query("matricula") matricula: Int,
         @Query("sexo") sexo: String,
-        @Query("idade") idade: Int
+        @Query("idade") idade: Int,
+        @Query("nota") nota: Float
     ) : Universitario
 
     @DELETE("/api/universitarios/remover-aluno")
@@ -30,9 +32,7 @@ interface UniversitarioAPI {
 
     @PUT("/api/universitarios/atualizar-aluno")
     suspend fun atualizarAluno(
-        @Query("nome") nome: String,
         @Query("matricula") matricula: Int,
-        @Query("sexo") sexo: String,
-        @Query("idade") idade: Int
-    ) : Universitario
+        @Query("nota") nota: Float
+    ) : Response<Unit>
 }

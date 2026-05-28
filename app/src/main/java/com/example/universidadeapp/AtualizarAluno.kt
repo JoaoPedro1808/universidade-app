@@ -10,6 +10,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Response
+
 
 class AtualizarAluno : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,16 +19,12 @@ class AtualizarAluno : AppCompatActivity() {
         setContentView(R.layout.activity_atualizar_aluno)
 
         val etMatriculaAtualizar = findViewById<EditText>(R.id.etMatriculaAtualizar)
-        val etNomeAtualizar = findViewById<EditText>(R.id.etNomeAtualizar)
-        val etIdadeAtualizar = findViewById<EditText>(R.id.etIdadeAtualizar)
-        val etSexoAtualizar = findViewById<EditText>(R.id.etSexoAtualizar)
+        val etNota = findViewById<EditText>(R.id.etNota)
         val btAtualizarAluno = findViewById<Button>(R.id.btAtualizarAluno)
 
         btAtualizarAluno.setOnClickListener {
             val matriculaStr = etMatriculaAtualizar.text.toString().trim()
-            val nome = etNomeAtualizar.text.toString().trim()
-            val idadeStr = etIdadeAtualizar.text.toString().trim()
-            val sexo = etSexoAtualizar.text.toString().trim()
+            val notaStr = etNota.text.toString().trim()
 
             if (matriculaStr.isEmpty()) {
                 Toast.makeText(this@AtualizarAluno, "Por favor informe a matrícula do aluno", Toast.LENGTH_LONG).show()
@@ -34,22 +32,22 @@ class AtualizarAluno : AppCompatActivity() {
             }
 
             val matricula = matriculaStr.toInt()
-            val idade = idadeStr.toInt()
+            val nota = notaStr.toFloat()
 
-            AtualizarDadosAluno(nome, matricula, sexo, idade)
+            AtualizarDadosAluno(matricula, nota)
 
             val voltar = Intent(this, MainActivity::class.java)
             startActivity(voltar)
         }
     }
 
-    private fun AtualizarDadosAluno(nome: String, matricula: Int, sexo: String, idade: Int) {
+    private fun AtualizarDadosAluno(matricula: Int, nota: Float) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val alunoAtualizado = RetrofitClient.api.atualizarAluno(nome, matricula, sexo, idade)
+                val alunoAtualizado = RetrofitClient.api.atualizarAluno(matricula, nota)
 
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@AtualizarAluno, "Aluno ${alunoAtualizado.nome} teve os dados modificados", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@AtualizarAluno, "Dados do aluno atualizados", Toast.LENGTH_LONG).show()
                     finish()
                 }
             } catch (e: Exception) {

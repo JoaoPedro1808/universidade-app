@@ -22,32 +22,35 @@ class InserirNovoAluno : AppCompatActivity() {
         val etIdade = findViewById<EditText>(R.id.etIdade)
         val etSexo = findViewById<EditText>(R.id.etSexo)
         val btSalvarAluno = findViewById<Button>(R.id.btSalvarAluno)
+        val etNota = findViewById<EditText>(R.id.etNota)
 
         btSalvarAluno.setOnClickListener {
             val matriculaStr = etMatricula.text.toString().trim()
             val nome = etNome.text.toString().trim()
             val idadeStr = etIdade.text.toString().trim()
             val sexo = etSexo.text.toString().trim()
+            val notaStr = etNota.text.toString().trim()
 
-            if (matriculaStr.isEmpty() || nome.isEmpty() || idadeStr.isEmpty() || sexo.isEmpty()) {
+            if (matriculaStr.isEmpty() || nome.isEmpty() || idadeStr.isEmpty() || sexo.isEmpty() || notaStr.isEmpty()) {
                 Toast.makeText(this, "Por favor, preencha todos os campos!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val matricula = matriculaStr.toInt()
             val idade = idadeStr.toInt()
+            val nota = notaStr.toFloat()
 
-            salvarAlunoNoServidor(nome, matricula, sexo, idade)
+            salvarAlunoNoServidor(nome, matricula, sexo, idade, nota)
 
             val voltar = Intent(this, MainActivity::class.java)
             startActivity(voltar)
         }
     }
 
-    private fun salvarAlunoNoServidor(nome: String, matricula: Int, sexo: String, idade: Int) {
+    private fun salvarAlunoNoServidor(nome: String, matricula: Int, sexo: String, idade: Int, nota: Float) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val alunoCriado = RetrofitClient.api.inserirNovoAluno(nome, matricula, sexo, idade)
+                val alunoCriado = RetrofitClient.api.inserirNovoAluno(nome, matricula, sexo, idade, nota)
 
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@InserirNovoAluno, "Aluno ${alunoCriado.nome} inserido com sucesso!", Toast.LENGTH_LONG).show()
